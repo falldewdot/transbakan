@@ -167,6 +167,15 @@ section{
     object-fit:cover;
 }
 
+/* MERCH */
+.merchandising{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+}
+
 /* CONTACTO */
 .contact{
     text-align:center;
@@ -204,11 +213,12 @@ nav ul{
 <!-- NAV -->
 <nav>
     <img src="isotipo.png" width="100" alt="Tomás-kun" style="display: block; margin-left: 0px; margin-right: auto;">
-    <img src="logotipo.png" width="150" alt="TransBakán" style="display: block; margin-left: 0px; margin-right: auto;">
+    <img src="logotipo.png" width="150" alt="TransBakán" style="display: block; margin-left: -650px; margin-right: auto;">
     <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#galeria">Galería</a></li>
+		<li><a href="#merchandising">Merchandising</a></li>
         <li><a href="#contacto">Contacto</a></li>
     </ul>
 </nav>
@@ -262,6 +272,15 @@ nav ul{
         <img src="paquete1.png" alt="">
 		<img src="paquete2.png" alt="">
 		<img src="paquete3.png" alt="">
+    </div>
+</section>
+<!-- MERCH -->
+<section id="merchandising">
+    <h2 class="title">Merchandising</h2>
+
+    <div class="merchandising">
+        <img src="merch1.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="250">
+		<img src="merch2.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="250">
     </div>
 </section>
 
