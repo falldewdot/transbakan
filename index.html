@@ -2,495 +2,279 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TransBakán</title>
-<!-- Fuentes -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="TransBakán - Transporte confiable, rápido y seguro.">
+<title>TransBakán | Transporte Profesional</title>
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --rojo: #D72638;
-    --azul: #1B4FD8;
-    --rojo-claro: #FF4D5E;
-    --azul-claro: #3D6FFF;
-    --fondo: #F8F7F4;
-    --negro: #181818;
-    --gris: #777;
-    --blanco: #fff;
-  }
-  body { font-family: "Nunito", sans-serif; background: var(--fondo); color: var(--negro); }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-  /* NAV */
-  nav {
-    background: var(--blanco);
-    border-bottom: 2px solid #eee;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; height: 66px;
-    position: sticky; top: 0; z-index: 50;
-  }
-  .logo-img { height: 42px; width: auto; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a {
-    font-size: 13px; font-weight: 900; color: var(--negro);
-    text-decoration: none; opacity: 0.5; letter-spacing: .5px;
-    text-transform: uppercase; transition: opacity .2s;
-  }
-  .nav-links a:hover { opacity: 1; }
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
 
-  /* HERO */
-  .hero {
-    padding: 72px 5% 60px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 48px; align-items: center; max-width: 1100px; margin: 0 auto;
-  }
-  .hero-tag {
-    display: inline-block; background: var(--rojo); color: white;
-    font-size: 11px; font-weight: 900; letter-spacing: 2px;
-    text-transform: uppercase; padding: 5px 14px;
-    border-radius: 100px; margin-bottom: 22px;
-  }
-  .hero h1 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: clamp(48px, 6vw, 78px);
-    line-height: 0.95; letter-spacing: 1px; margin-bottom: 20px;
-  }
-  .hero p { font-size: 16px; line-height: 1.65; color: #555; margin-bottom: 32px; max-width: 460px; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-iso { display: flex; justify-content: center; }
-  .hero-iso img { width: 280px; height: 280px; object-fit: contain; filter: drop-shadow(0 8px 32px rgba(27,79,216,.18)); }
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(15,23,42,.9);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    z-index:1000;
+}
 
-  /* Botones */
-  .btn-rojo, .btn-azul {
-    background: var(--rojo);
-    color: white;
-    padding: 13px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 900;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
-    font-family: "Nunito", sans-serif;
-    display: inline-block;
-  }
-  .btn-rojo:hover { background: var(--rojo-claro); transform: translateY(-2px); }
-  .btn-azul { background: var(--azul); }
-  .btn-azul:hover { background: var(--azul-claro); transform: translateY(-2px); }
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#38bdf8;
+}
 
-  /* DIVISOR */
-  .divisor {
-    height: 3px;
-    background: linear-gradient(to right, var(--rojo) 50%, var(--azul) 50%);
-    margin: 0 5%;
-    border-radius: 2px;
-  }
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
 
-  /* Servicios */
-  .servicios {
-    padding: 64px 5%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .servicios h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 36px;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
-  .servicios > p {
-    color: var(--gris);
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
-  .servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-  }
-  .serv-card {
-    background: white;
-    border-radius: 12px;
-    padding: 24px 20px;
-    border: 1.5px solid #eee;
-    transition: border-color .2s, transform .2s;
-  }
-  .serv-card:hover {
-    border-color: var(--azul);
-    transform: translateY(-3px);
-  }
-  .serv-emoji { font-size: 28px; margin-bottom: 10px; }
-  .serv-card h3 { font-size: 15px; font-weight: 900; margin-bottom: 5px; }
-  .serv-card p { font-size: 13px; color: var(--gris); line-height: 1.55; }
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
 
-  /* Rutas */
-  .rutas {
-    background: var(--negro);
-    padding: 64px 5%;
-  }
-  .rutas-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .rutas h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: white;
-    margin-bottom: 6px;
-  }
-  .rutas > p {
-    color: rgba(255,255,255,.4);
-    font-size: 15px;
-    margin-bottom: 24px;
-  }
-  .rutas-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .ruta {
-    background: rgba(255,255,255,.05);
-    padding: 15px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 6px;
-    transition: background .15s;
-    border-left: 3px solid transparent;
-  }
-  .ruta:hover { background: rgba(255,255,255,.09); border-left-color: var(--rojo); }
-  .ruta-nombre { font-weight: 900; color: white; font-size: 15px; display: flex; align-items: center; gap: 10px; }
-  .ruta-arrow { color: var(--rojo); }
-  .ruta-hrs { font-size: 12px; color: rgba(255,255,255,.32); margin-top: 2px; }
-  .ruta-precio { font-family: "Bebas Neue", sans-serif; font-size: 22px; color: #FFD166; letter-spacing: 1px; }
+nav ul li a:hover{
+    color:#38bdf8;
+}
 
-  /* Contacto */
-  .contacto {
-    padding: 64px 5%;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .contacto h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 36px;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
-  .contacto > p {
-    color: var(--gris);
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
-  .form {
-    background: white;
-    border-radius: 14px;
-    padding: 32px;
-    border: 1.5px solid #eee;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .form-row {
-    display: flex;
-    gap: 12px;
-  }
-  .fg {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .fg label {
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #444;
-  }
-  .fg input, .fg select, .fg textarea {
-    padding: 11px 14px;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 8px;
-    font-family: "Nunito", sans-serif;
-    font-size: 14px;
-    color: var(--negro);
-    outline: none;
-    transition: border-color .2s;
-    background: #FAFAFA;
-  }
-  .fg input:focus, .fg select:focus, .fg textarea:focus {
-    border-color: var(--azul);
-    background: white;
-  }
-  .fg textarea {
-    height: 85px;
-    resize: vertical;
-  }
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8% 50px;
+    gap:40px;
+    flex-wrap:wrap;
+}
 
-  /* Modal */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.58);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal-overlay.show { display: flex; }
-  .modal {
-    background: white;
-    border-radius: 20px;
-    padding: 44px 36px;
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-    animation: popIn .35s cubic-bezier(.34,1.56,.64,1);
-    border-top: 5px solid var(--rojo);
-  }
-  @keyframes popIn {
-    from { transform: scale(.65); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  .modal-emoji {
-    font-size: 64px;
-    margin-bottom: 14px;
-    display: block;
-  }
-  .modal h3 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 28px;
-    letter-spacing: 1px;
-    color: var(--rojo);
-    margin-bottom: 12px;
-  }
-  .modal p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 26px;
-  }
-  .modal p strong {
-    color: var(--azul);
-    font-weight: 900;
-  }
-  .modal-close {
-    background: var(--azul);
-    color: white;
-    border: none;
-    padding: 13px 32px;
-    border-radius: 8px;
-    font-family: "Nunito", sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: background .2s;
-  }
-  .modal-close:hover { background: var(--azul-claro); }
+.hero-text{
+    flex:1;
+    min-width:300px;
+}
 
-  /* Footer */
-  footer {
-    background: var(--negro);
-    padding: 26px 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 10px;
-  }
-  .footer-logo { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: .7; }
-  footer p { font-size: 12px; color: rgba(255,255,255,.28); }
+.hero-text h1{
+    font-size:3.5rem;
+    line-height:1.1;
+}
 
-  /* Responsive */
-  @media(max-width: 700px){
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-iso { display: none; }
-    .form-row { flex-direction: column; }
-  }
+.hero-text h1 span{
+    color:#38bdf8;
+}
+
+.hero-text p{
+    margin:20px 0;
+    color:#cbd5e1;
+    font-size:1.1rem;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#38bdf8;
+    color:#000;
+    font-weight:700;
+    text-decoration:none;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(56,189,248,.3);
+}
+
+.hero-img{
+    flex:1;
+    min-width:300px;
+    text-align:center;
+}
+
+.hero-img img{
+    width:100%;
+    max-width:550px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+/* SECCIONES */
+section{
+    padding:80px 8%;
+}
+
+.title{
+    font-size:2.2rem;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:#334155;
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:#38bdf8;
+}
+
+/* GALERIA */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:18px;
+    height:220px;
+    object-fit:cover;
+}
+
+/* CONTACTO */
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#cbd5e1;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#020617;
+    text-align:center;
+    padding:25px;
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero{
+    text-align:center;
+}
+.hero-text h1{
+    font-size:2.5rem;
+}
+nav ul{
+    display:none;
+}
+}
 </style>
 </head>
 <body>
 
-<!-- Navegación -->
+<!-- NAV -->
 <nav>
-  <img class="logo-img" src="data:image/jpeg;base64,...tu_base64..." alt="TransBakán" />
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#rutas">Rutas</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
+    <div class="logo">TransBakán</div>
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div>
-    <div class="hero-tag">🚌 Transporte Nacional · Chile</div>
-    <h1>TE MOVEMOS<br>POR CHILE<br>CON ONDA</h1>
-    <p>Empresa de transporte recién iniciada con mucha energía y ganas de conectar Chile de norte a sur. ¡Somos bakanes y lo sabemos!</p>
-    <div class="hero-btns">
-      <a href="#contacto" class="btn-rojo">Pedir servicio</a>
-      <a href="#rutas" class="btn-azul">Ver rutas</a>
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-text">
+        <h1>Movemos tu carga con estilo <span>y seguridad</span></h1>
+        <p>En TransBakán entregamos soluciones de transporte modernas, rápidas y confiables para empresas y personas.</p>
+        <a href="#contacto" class="btn">Solicitar Servicio</a>
     </div>
-  </div>
-  <div class="hero-iso">
-    <img src="data:image/jpeg;base64,...tu_base64..." alt="Isotipo TransBakán" />
-  </div>
+
+    <div class="hero-img">
+        <!-- CAMBIA ESTA IMAGEN -->
+        <img src="img/camion-principal.jpg" alt="Camión TransBakán">
+    </div>
 </section>
 
-<!-- Divisor -->
-<div class="divisor"></div>
+<!-- SERVICIOS -->
+<section id="servicios">
+    <h2 class="title">Nuestros Servicios</h2>
 
-<!-- Servicios -->
-<section class="servicios" id="servicios">
-  <h2>Lo que ofrecemos</h2>
-  <p>Simple, honesto y con harto corazón chileno.</p>
-  <div class="servicios-grid">
-    <div class="serv-card">
-      <div class="serv-emoji">🚌</div>
-      <h3>Buses interurbanos</h3>
-      <p>Viajes entre ciudades con salidas diarias y asientos cómodos.</p>
+    <div class="cards">
+        <div class="card">
+            <h3>Transporte Nacional</h3>
+            <p>Movemos carga a cualquier ciudad del país con puntualidad.</p>
+        </div>
+
+        <div class="card">
+            <h3>Envíos Express</h3>
+            <p>Servicios urgentes para entregas rápidas y seguras.</p>
+        </div>
+
+        <div class="card">
+            <h3>Logística Empresarial</h3>
+            <p>Soluciones personalizadas para empresas y negocios.</p>
+        </div>
+
+        <div class="card">
+            <h3>Mudanzas</h3>
+            <p>Trasladamos tus pertenencias con máximo cuidado.</p>
+        </div>
     </div>
-    <div class="serv-card">
-      <div class="serv-emoji">📦</div>
-      <h3>Encomiendas</h3>
-      <p>Mandamos tus paquetes a cualquier parte del país, rápido y seguro.</p>
-    </div>
-    <div class="serv-card">
-      <div class="serv-emoji">🏔️</div>
-      <h3>Turismo</h3>
-      <p>Excursiones a los mejores destinos de Chile. ¡El norte y el sur te esperan!</p>
-    </div>
-    <div class="serv-card">
-      <div class="serv-emoji">🏢</div>
-      <h3>Empresas</h3>
-      <p>Soluciones de transporte para tu negocio con tarifas especiales.</p>
-    </div>
-  </div>
 </section>
 
-<!-- Rutas -->
-<section class="rutas" id="rutas">
-  <div class="rutas-inner">
-    <h2>Nuestras Rutas</h2>
-    <p>Conectamos las principales ciudades del país.</p>
-    <div class="rutas-list">
-      <div class="ruta">
-        <div>
-          <div class="ruta-nombre">Santiago <span class="ruta-arrow">→</span> Valparaíso</div>
-          <div class="ruta-hrs">~1.5 hrs · salidas frecuentes</div>
-        </div>
-        <div class="ruta-precio">desde $4.500</div>
-      </div>
-      <div class="ruta">
-        <div>
-          <div class="ruta-nombre">Santiago <span class="ruta-arrow">→</span> La Serena</div>
-          <div class="ruta-hrs">~6 hrs · 6 salidas al día</div>
-        </div>
-        <div class="ruta-precio">desde $16.500</div>
-      </div>
-      <div class="ruta">
-        <div>
-          <div class="ruta-nombre">Santiago <span class="ruta-arrow">→</span> Concepción</div>
-          <div class="ruta-hrs">~5 hrs · 8 salidas al día</div>
-        </div>
-        <div class="ruta-precio">desde $14.900</div>
-      </div>
-      <div class="ruta">
-        <div>
-          <div class="ruta-nombre">Santiago <span class="ruta-arrow">→</span> Puerto Montt</div>
-          <div class="ruta-hrs">~12 hrs · 5 salidas al día</div>
-        </div>
-        <div class="ruta-precio">desde $28.000</div>
-      </div>
-      <div class="ruta">
-        <div>
-          <div class="ruta-nombre">Antofagasta <span class="ruta-arrow">→</span> Iquique</div>
-          <div class="ruta-hrs">~4 hrs · 4 salidas al día</div>
-        </div>
-        <div class="ruta-precio">desde $12.000</div>
-      </div>
+<!-- GALERIA -->
+<section id="galeria">
+    <h2 class="title">Nuestra Flota</h2>
+
+    <div class="gallery">
+        <img src="img/flota1.jpg" alt="">
+        <img src="img/flota2.jpg" alt="">
+        <img src="img/flota3.jpg" alt="">
     </div>
-  </div>
 </section>
 
-<!-- Contacto -->
-<section class="contacto" id="contacto">
-  <h2>Pide tu servicio</h2>
-  <p>¿Listo para moverte? Cuéntanos lo que necesitas.</p>
-  <div class="form">
-    <div class="form-row">
-      <div class="fg">
-        <label>Tu nombre</label>
-        <input type="text" placeholder="Pedro González" />
-      </div>
-      <div class="fg">
-        <label>Teléfono</label>
-        <input type="tel" placeholder="+56 9 XXXX XXXX" />
-      </div>
-    </div>
-    <div class="fg">
-      <label>Correo</label>
-      <input type="email" placeholder="pedro@ejemplo.cl" />
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label>Origen</label>
-        <input type="text" placeholder="Ciudad de salida" />
-      </div>
-      <div class="fg">
-        <label>Destino</label>
-        <input type="text" placeholder="Ciudad de llegada" />
-      </div>
-    </div>
-    <div class="fg">
-      <label>Tipo de servicio</label>
-      <select>
-        <option value="">Seleccionar...</option>
-        <option>Bus interurbano</option>
-        <option>Encomienda</option>
-        <option>Turismo</option>
-        <option>Contrato empresa</option>
-      </select>
-    </div>
-    <div class="fg">
-      <label>Mensaje (opcional)</label>
-      <textarea placeholder="¿Algún detalle extra?"></textarea>
-    </div>
-    <button class="btn-rojo" onclick="mostrarError()" type="button">Enviar solicitud 🚌</button>
-  </div>
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+    <h2 class="title">Contáctanos</h2>
+    <p>📞 +56 9 1234 5678</p>
+    <p>📧 transportebakan@transbakan.site</p>
+    <p>📍 Chile</p>
 </section>
 
-<!-- Footer -->
 <footer>
-  <img class="footer-logo" src="data:image/jpeg;base64,...tu_base64..." alt="TransBakán" />
-  <p>© 2024 · La Serena, Chile · Hecho con 🤙 y harto mate</p>
+    © 2026 TransBakán - Todos los derechos reservados.
 </footer>
-
-<!-- Modal Error -->
-<div class="modal-overlay" id="modalOverlay" onclick="cerrarModal(event)">
-  <div class="modal">
-    <span class="modal-emoji">😎🚌💨</span>
-    <h3>¡Lo sentimos!</h3>
-    <p>
-      Su pedido no se pudo realizar porque los trabajadores
-      están ocupados siendo <strong>MUUUUY BAKANES</strong>
-      en este momento.<br /><br />
-      Vuelva a intentarlo cuando terminen de ser tan bacán…
-      lo cual puede tomar un rato. 🤷‍♂️
-    </p>
-    <button class="modal-close" onclick="cerrarModal()" type="button">Entendido, cachái 👍</button>
-  </div>
-</div>
-
-<script>
-  function mostrarError() {
-    document.getElementById("modalOverlay").classList.add("show");
-  }
-  function cerrarModal(e) {
-    if (!e || e.target === document.getElementById("modalOverlay")) {
-      document.getElementById("modalOverlay").classList.remove("show");
-    }
-  }
-</script>
 
 </body>
 </html>
